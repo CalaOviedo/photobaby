@@ -1,0 +1,467 @@
+/* ===== ESTILOS GENERALES DE LA WEB ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f1de; /* Color crema suave de fondo original */
+    color: #3d348b;            /* Texto morado muy oscuro elegante */
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* ===== CABECERA GLOBAL (Línea única perfecta: Logo izquierda | Título Centro | Menú Derecha) ===== */
+.header {
+    width: 100%;
+    background-color: #3d348b; /* Color principal oscuro y profesional */
+    padding: 0;                /* Cabecero muy estrecho y elegante */
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* NAV - MENÚ CON FLEXBOX */
+.nav-container {
+    display: flex;            /* REQUISITO: Flexbox */
+    align-items: center;      /* Alineación vertical perfecta en la misma línea */
+    justify-content: space-between; 
+    padding: 5px 5%;          
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Contenedor del Logo (Izquierda) */
+.logo {
+    flex: 1;                  /* Toma 1 parte del espacio para equilibrar el menú */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo img {
+    height: 120px;            /* Logo grande en todas las páginas */
+    width: auto;
+    display: block;
+}
+
+/* Título de la web (Centro exacto matemático) */
+.home-title {
+    margin: 0;
+    text-align: center;
+    flex: 2;                  /* Espacio central prioritario */
+}
+
+.home-title h1 {
+    font-size: 2rem;          /* Tamaño ideal para una sola línea */
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.home-title p {
+    font-size: 0.85rem;       
+    color: #f2cc8f;           /* Detalle dorado/arena para subtítulos */
+    margin: 0;
+}
+
+/* Enlaces de Navegación (Derecha del todo) */
+nav {
+    flex: 1;                  /* Toma 1 parte del espacio para equilibrar el logo */
+    display: flex;
+    justify-content: flex-end;/* Empuja los enlaces al extremo derecho */
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1rem;
+    white-space: nowrap;      /* Evita que los botones se partan en dos líneas */
+}
+
+nav a:hover {
+    color: #b5838d; /* REQUISITO: Hover rosa pastel */
+}
+
+/* ===== SECCIÓN DESTACADA CON FLEXBOX ===== */
+.featured {
+    display: flex; /* REQUISITO: Flexbox */
+    justify-content: space-between;
+    gap: 20px;
+    padding: 40px 5%;
+    background-color: #f8f9fa;
+}
+
+.featured-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.featured-item:hover {
+    transform: translateY(-5px); /* REQUISITO: Efecto visual hover */
+}
+
+.featured-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;           /* Evita que la foto pierda perspectiva al adaptarse */
+}
+
+.featured-item h3 {
+    margin: 15px 0 5px;
+    color: #3d348b;
+    font-size: 1.3rem;
+    padding: 0 15px;
+}
+
+.featured-item p {
+    padding: 0 15px 20px;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: auto;
+}
+
+/* ===== TEXTO CENTRAL DE BIENVENIDA ===== */
+.home-content {
+    padding: 50px 10%;
+    text-align: center;
+}
+
+.home-content h2 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+    color: #3d348b;
+}
+
+.home-content p {
+    max-width: 750px;
+    margin: auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* ===== CARRUSEL CONTINUO ===== */
+.carousel {
+    overflow: hidden; 
+    width: 100%;
+    background-color: #fff; 
+    padding: 25px 0;
+}
+
+.carousel-track {
+    display: flex;
+    width: calc(250px * 16);
+    animation: scroll 20s linear infinite; 
+}
+
+.carousel-track img {
+    width: 250px; 
+    height: 180px;
+    object-fit: cover;            /* Mantiene la proporción de las fotos en el carrusel */
+    margin: 0 10px; 
+    border-radius: 8px; 
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 8)); }
+}
+
+.carousel:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+/* ===== REQUISITO EXIGIDO: MAQUETACIÓN DE TARJETAS CON CSS GRID ===== */
+.productos {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.productos h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #3d348b;
+    margin-bottom: 10px;
+}
+
+.productos h3 {
+    text-align: center;
+    color: #b5838d;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.productos p {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #666;
+}
+
+/* Transformación obligatoria de Flex a CSS Grid */
+.cards {
+    display: grid; /* REQUISITO OBLIGATORIO: CSS Grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas idénticas en escritorio */
+    gap: 25px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px); /* REQUISITO: Efecto hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;           /* Evita distorsiones de la imagen */
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #3d348b;
+    text-align: left;
+}
+
+.card-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+/* ===== FORMULARIO DE CONTACTO Y CONÓCENOS ===== */
+.conocenos {
+    background-color: white;
+    padding: 50px 20px;
+}
+
+.conocenos-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.conocenos-texto {
+    flex: 1;
+    min-width: 300px;
+}
+
+.conocenos-texto h2 {
+    font-size: 2rem;
+    color: #3d348b;
+    margin-bottom: 20px;
+}
+
+.conocenos-texto p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.formulario {
+    background-color: #f4f1de;
+    padding: 30px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.formulario h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #3d348b;
+    margin-bottom: 5px;
+}
+
+.formulario input,
+.formulario textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #b5838d;
+}
+
+.formulario button {
+    padding: 12px;
+    background-color: #3d348b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.formulario button:hover {
+    background-color: #b5838d;
+    transform: scale(1.02);
+}
+
+/* ===== BOTONES GENERALES ===== */
+.btn-comprar {
+    background-color: #b5838d; /* Botón rosa viejo pastel original */
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block; 
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-comprar:hover {
+    background-color: #a06a75;
+    transform: scale(1.02); 
+}
+
+/* ===== PIE DE PÁGINA (FOOTER) ===== */
+.footer {
+    background-color: #211a4a;
+    color: #fff;
+    padding: 35px 10px;
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.footer .socials {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer .socials a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer .socials a:hover {
+    transform: scale(1.2);
+}
+.footer .socials a[aria-label="Instagram"]:hover { color: #E1306C; }
+.footer .socials a[aria-label="Facebook"]:hover { color: #1877F2; }
+.footer .socials a[aria-label="WhatsApp"]:hover { color: #25D366; }
+
+
+/* ===== REQUISITO: DISEÑO RESPONSIVE GLOBAL (MEDIA QUERIES) ===== */
+
+/* Adaptación para Tablets y pantallas medianas */
+@media (max-width: 992px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr); /* Las tarjetas pasan a ser 2 columnas */
+    }
+    
+    .nav-container {
+        padding: 5px 3%;                  
+    }
+    
+    .home-title h1 {
+        font-size: 1.6rem;                 /* El título se encoge proporcionalmente en tablet */
+    }
+}
+
+/* Adaptación estricta para Móviles y pantallas pequeñas */
+@media (max-width: 768px) {
+    /* En móviles la cabecera adopta un diseño vertical limpio para evitar colisiones */
+    .nav-container {
+        flex-direction: column; 
+        gap: 12px;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    .logo, .home-title, nav {
+        flex: none;                        /* Cancela el comportamiento flexible en móvil */
+        width: 100%;
+    }
+
+    .logo {
+        justify-content: center;          /* Logo centrado en móvil */
+    }
+
+    .home-title {
+        text-align: center;               
+        margin: 5px 0;
+    }
+
+    .home-title h1 {
+        font-size: 1.8rem;
+    }
+
+    nav {
+        justify-content: center;          /* Menú centrado en móvil */
+        flex-wrap: wrap;                   /* Los botones saltan de fila ordenadamente si les falta espacio */
+        gap: 15px;
+    }
+
+    /* Las secciones destacadas pasan a una sola columna */
+    .featured {
+        flex-direction: column;
+        padding: 30px 5%;
+    }
+    
+    .featured-item img {
+        height: 200px;
+    }
+
+    /* Las tarjetas de productos se apilan verticalmente */
+    .cards {
+        grid-template-columns: 1fr; 
+    }
+    
+    .card img {
+        height: 220px;                     /* Mantiene la proporción de las imágenes sin distorsionar */
+    }
+
+    /* El conócenos y formulario se adaptan a una columna */
+    .conocenos-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+}
