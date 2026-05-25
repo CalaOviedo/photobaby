@@ -334,25 +334,6 @@ nav a:hover {
     transform: scale(1.02);
 }
 
-/* ===== BOTONES GENERALES ===== */
-.btn-comprar {
-    background-color: #b5838d; /* Botón rosa viejo pastel original */
-    color: white;
-    text-decoration: none;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    text-align: center;
-    display: inline-block; 
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.btn-comprar:hover {
-    background-color: #a06a75;
-    transform: scale(1.02); 
-}
 
 /* ===== PIE DE PÁGINA (FOOTER) ===== */
 .footer {
