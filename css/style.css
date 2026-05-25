@@ -163,8 +163,8 @@ nav a:hover {
 }
 
 .carousel-track img {
-    width: 250px; 
-    height: 180px;
+    width: 3050px; 
+    height: 250px;
     object-fit: cover;            /* Mantiene la proporción de las fotos en el carrusel */
     margin: 0 10px; 
     border-radius: 8px; 
