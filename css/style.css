@@ -2,34 +2,28 @@
 * {
     box-sizing: border-box;
 }
-
 body {
-    background-color: #f4f1de; /* Color crema suave de fondo original */
-    color: #3d348b;            /* Texto morado muy oscuro elegante */
-    font-family: Arial, sans-serif;
+    background-color: #f4f1de;
+    color: #3d348b;
+      font-family: Arial, sans-serif;
     margin: 0;
 }
-
-/* ===== CABECERA GLOBAL (Línea única perfecta: Logo izquierda | Título Centro | Menú Derecha) ===== */
 .header {
     width: 100%;
-    background-color: #3d348b; /* Color principal oscuro y profesional */
+    background-color: #3d348b; 
     padding: 0;                /* Cabecero muy estrecho y elegante */
     color: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* NAV - MENÚ CON FLEXBOX */
 .nav-container {
-    display: flex;            /* REQUISITO: Flexbox */
+    display: flex;            
     align-items: center;      /* Alineación vertical perfecta en la misma línea */
     justify-content: space-between; 
     padding: 5px 5%;          
     max-width: 1400px;
     margin: 0 auto;
 }
-
-/* Contenedor del Logo (Izquierda) */
 .logo {
     flex: 1;                  /* Toma 1 parte del espacio para equilibrar el menú */
     display: flex;
@@ -42,7 +36,6 @@ body {
     display: block;
 }
 
-/* Título de la web (Centro exacto matemático) */
 .home-title {
     margin: 0;
     text-align: center;
@@ -58,11 +51,10 @@ body {
 
 .home-title p {
     font-size: 0.85rem;       
-    color: #f2cc8f;           /* Detalle dorado/arena para subtítulos */
+    color: #f2cc8f;           
     margin: 0;
 }
 
-/* Enlaces de Navegación (Derecha del todo) */
 nav {
     flex: 1;                  /* Toma 1 parte del espacio para equilibrar el logo */
     display: flex;
@@ -80,12 +72,11 @@ nav a {
 }
 
 nav a:hover {
-    color: #b5838d; /* REQUISITO: Hover rosa pastel */
+    color: #b5838d; /*  Hover rosa pastel */
 }
 
-/* ===== SECCIÓN DESTACADA CON FLEXBOX ===== */
 .featured {
-    display: flex; /* REQUISITO: Flexbox */
+    display: flex; /* REQUISITO*/
     justify-content: space-between;
     gap: 20px;
     padding: 40px 5%;
@@ -105,7 +96,7 @@ nav a:hover {
 }
 
 .featured-item:hover {
-    transform: translateY(-5px); /* REQUISITO: Efecto visual hover */
+    transform: translateY(-5px); /* Efecto visual hover */
 }
 
 .featured-item img {
@@ -148,7 +139,6 @@ nav a:hover {
     color: #444;
 }
 
-/* ===== CARRUSEL CONTINUO ===== */
 .carousel {
     overflow: hidden; 
     width: 100%;
@@ -165,7 +155,7 @@ nav a:hover {
 .carousel-track img {
     width: 3050px; 
     height: 250px;
-    object-fit: cover;            /* Mantiene la proporción de las fotos en el carrusel */
+    object-fit: cover;            /* Mantiene la proporción de las fotos */
     margin: 0 10px; 
     border-radius: 8px; 
 }
@@ -179,7 +169,7 @@ nav a:hover {
     animation-play-state: paused;
 }
 
-/* ===== REQUISITO EXIGIDO: MAQUETACIÓN DE TARJETAS CON CSS GRID ===== */
+/* ===== REQUISITO : MAQUETACIÓN CON GRID ===== */
 .productos {
     padding: 40px 20px;
     max-width: 1200px;
@@ -206,10 +196,9 @@ nav a:hover {
     margin: 0 auto 30px;
     color: #666;
 }
-
-/* Transformación obligatoria de Flex a CSS Grid */
+/* Cuadrícula general de tarjetas con CSS Grid */
 .cards {
-    display: grid; /* REQUISITO OBLIGATORIO: CSS Grid */
+    display: grid; 
     grid-template-columns: repeat(3, 1fr); /* 3 columnas idénticas en escritorio */
     gap: 25px;
 }
@@ -220,10 +209,12 @@ nav a:hover {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;          /* Activa Flexbox vertical en la propia tarjeta */
+    flex-direction: column;
 }
 
 .card:hover {
-    transform: translateY(-8px); /* REQUISITO: Efecto hover */
+    transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -233,8 +224,12 @@ nav a:hover {
     object-fit: cover;           /* Evita distorsiones de la imagen */
 }
 
+/*  Alineación perfecta de elementos interiores */
 .card-content {
     padding: 20px;
+    display: flex;            /* Activa Flexbox vertical dentro del contenido */
+    flex-direction: column;   /* Los elementos se apilan uno debajo de otro */
+    flex-grow: 1;             /* Obliga al contenedor a estirarse al alto máximo de la tarjeta */
 }
 
 .card-content h3 {
@@ -249,7 +244,14 @@ nav a:hover {
     line-height: 1.5;
     color: #666;
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/*  El precio ahora se empuja de forma automática al fondo */
+.card-content p[style*="font-size: 1.5rem"] {
+    margin-top: auto !important; /* El margen automático empuja el precio abajo del todo de forma idéntica */
+    margin-bottom: 10px !important;
+    padding-top: 10px;
 }
 
 /* ===== FORMULARIO DE CONTACTO Y CONÓCENOS ===== */
@@ -333,7 +335,26 @@ nav a:hover {
     background-color: #b5838d;
     transform: scale(1.02);
 }
+.btn-comprar {
+    background-color: #b5838d; /* Botón rosa viejo pastel original */
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    display: block;            /* Cambiado a block para que ocupe todo el ancho de forma limpia */
+    width: 100%;               /* Se ajusta perfectamente al ancho de la tarjeta */
+    margin-top: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
 
+.btn-comprar:hover {
+    background-color: #a06a75;
+    transform: scale(1.02); 
+}
 
 /* ===== PIE DE PÁGINA (FOOTER) ===== */
 .footer {
@@ -369,7 +390,7 @@ nav a:hover {
 .footer .socials a[aria-label="WhatsApp"]:hover { color: #25D366; }
 
 
-/* ===== REQUISITO: DISEÑO RESPONSIVE GLOBAL (MEDIA QUERIES) ===== */
+/* ===== DISEÑO RESPONSIVE GLOBAL (MEDIA QUERIES) ===== */
 
 /* Adaptación para Tablets y pantallas medianas */
 @media (max-width: 992px) {
@@ -436,13 +457,23 @@ nav a:hover {
     }
     
     .card img {
-        height: 220px;                     /* Mantiene la proporción de las imágenes sin distorsionar */
+        height: 220px;            /* Mantiene la proporción de las imágenes sin distorsionar */
     }
 
-    /* El conócenos y formulario se adaptan a una columna */
+    /* conócenos y formulario se adaptan a una columna */
     .conocenos-container {
         flex-direction: column;
         text-align: center;
         gap: 30px;
     }
 }
+.btn-comprar:hover {
+    background-color: #3d348b;  
+    transform: scale(1.08);     
+}
+
+.btn-comprar:hover::after {
+    content: " 🛒 ¡Añadido!";    
+}
+
+
