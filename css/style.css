@@ -11,56 +11,60 @@ body {
 .header {
     width: 100%;
     background-color: #3d348b; 
-    padding: 0;                /* Cabecero muy estrecho y elegante */
+    padding: 10px 0;           /* Forzamos un grosor de cabecera más pequeño y compacto */
     color: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+
 .nav-container {
     display: flex;            
-    align-items: center;      /* Alineación vertical perfecta en la misma línea */
-    justify-content: space-between; 
-    padding: 5px 5%;          
+    align-items: center;      /* Alineación vertical perfecta: todo flota exactamente en la misma línea */
+    justify-content: flex-start; /* Alinea los bloques de izquierda a derecha de forma continua */
+    padding: 0 5%;          
     max-width: 1400px;
     margin: 0 auto;
+    gap: 30px;                /* Espaciado de cortesía para que el título no pegue al logo */
 }
+
 .logo {
-    flex: 1;                  /* Toma 1 parte del espacio para equilibrar el menú */
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
 }
 
 .logo img {
-    height: 120px;            /* Logo grande en todas las páginas */
+    height: 90px;             /* Tamaño idéntico y optimizado para todas las páginas */
     width: auto;
     display: block;
 }
 
 .home-title {
     margin: 0;
-    text-align: center;
-    flex: 2;                  /* Espacio central prioritario */
+    text-align: left;         /* Alineado a la izquierda para seguir el flujo natural */
 }
 
 .home-title h1 {
-    font-size: 2rem;          /* Tamaño ideal para una sola línea */
+    font-size: 1.8rem;        /* Tamaño óptimo para que conviva  en la misma fila */
     font-weight: bold;
     letter-spacing: 2px;
-    margin: 0;
+    margin: 0;                /* Quitamos los márgenes nativos que te tiraban el logo hacia abajo */
+    line-height: 1.1;
 }
 
 .home-title p {
-    font-size: 0.85rem;       
+    font-size: 0.8rem;       
     color: #f2cc8f;           
-    margin: 0;
+    margin: 2px 0 0 0;        
 }
 
+
 nav {
-    flex: 1;                  /* Toma 1 parte del espacio para equilibrar el logo */
     display: flex;
-    justify-content: flex-end;/* Empuja los enlaces al extremo derecho */
     gap: 25px;
+    margin-left: auto;        /* El imán magnético de Flexbox: empuja el menú a la derecha del título */
+    align-items: center;
 }
+
 
 nav a {
     color: white;
