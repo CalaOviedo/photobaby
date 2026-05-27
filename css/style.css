@@ -1,39 +1,32 @@
-/* ===== 1. ESTILOS GENERALES ===== */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 body {
     background-color: #f4f1de;
     color: #3d348b;
     font-family: Arial, sans-serif;
 }
-
 a {
     text-decoration: none;
-    transition: 0.3s;
 }
-
-/* ===== 2. CABECERA GLOBAL (Logo | Título | Menú) ===== */
+/* =====  CABECERA (Header navegable) ===== */
 .header {
     background-color: #3d348b;
     color: white;
     padding: 10px 5%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
-
 .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
 }
-
 .logo img {
-    height: 90px;
+    height: 80px;
     width: auto;
     display: block;
 }
@@ -41,23 +34,18 @@ a {
 .home-title {
     text-align: center;
 }
-
-.home-title h1 {
-    font-size: 2rem;
-    letter-spacing: 2px;
+.home-title  h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
 }
-
 .home-title p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #f2cc8f;
-    margin-top: 4px;
 }
-
 nav {
     display: flex;
-    gap: 25px;
+    gap: 20px;
 }
-
 nav a {
     color: white;
     font-weight: bold;
@@ -66,235 +54,152 @@ nav a {
 nav a:hover {
     color: #b5838d;
 }
-
-/* ===== 3. ESTRUCTURAS FLEXBOX (Index y Contacto) ===== */
-.featured,
-.conocenos-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 40px 5%;
-}
-
-.home-content,
-.conocenos {
-    padding: 50px 10%;
+/* HERO PRINCIPAL ===== */
+.hero {
+    background-color: #211a4a;
+    color: white;
+    padding: 20px 10px;
     text-align: center;
 }
-
-/* ===== 4. ESTRUCTURA GRID (Galería y Servicios) ===== */
-.productos {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: auto;
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
-
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+/* ===== TARJETAS (Grid para Productos/Galería) ===== */
+.productos {
+    padding: 40px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.productos h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
-
-/* ===== 5. TARJETAS GENERALES (Fusión de estilos) ===== */
-.featured-item,
-.card,
-.formulario {
-    background: white;
+.card {
+    background-color: white;
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    flex: 1;
-    transition: 0.3s;
 }
-
-.featured-item:hover,
-.card:hover {
-    transform: translateY(-5px);
-}
-
-/* Control de todas las imágenes de la web */
-.featured-item img,
-.card img,
-.carousel-track img {
+.card img {
     width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
 }
-
-.carousel-track img {
-    width: 3050px;
-    height: 250px;
-    margin: 0 10px;
-    border-radius: 8px;
-}
-
 .card-content {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
-
-.card-content h3,
-.conocenos-texto h2 {
-    color: #3d348b;
+.card-content h3 {
     margin-bottom: 10px;
 }
-
-.card-content p {
+.card-content .descripcion {
     font-size: 14px;
     color: #666;
     line-height: 1.5;
-}
-
-/* ===== 6. FORMULARIO Y BOTONES ===== */
-.conocenos {
-    background-color: white;
-    padding: 50px 5%;
-    width: 100%;
-}
-
-.conocenos-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    gap: 40px;
-    align-items: flex-start; /* Alinea el texto y el formulario arriba */
-    justify-content: space-between;
-}
-
-.conocenos-texto {
-    flex: 1; /* Esto le da el 50% del espacio al texto de la izquierda */
-    text-align: left; /* Alinea los textos a la izquierda para que quede limpio */
-}
-
-.conocenos-texto h2 {
-    font-size: 2.2rem;
-    color: #3d348b;
-    margin-bottom: 20px;
-}
-
-.conocenos-texto p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #3d348b;
     margin-bottom: 15px;
 }
-
-.formulario {
-    background-color: #f4f1de; /* Color crema original */
-    padding: 30px;
-    border-radius: 10px;
-    flex: 1; /* Esto le da el otro 50% del espacio al formulario */
-    max-width: 450px; /* Evita que el formulario se estire demasiado y se vea feo */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.formulario h3 {
-    text-align: center;
+.card-content .precio {
     font-size: 1.4rem;
-    color: #3d348b;
-    margin-bottom: 5px;
+    font-weight: bold;
+    color: #b5838d;
+    margin-top: auto; /* Empuja el precio abajo de forma limpia */
+    margin-bottom: 10px;
 }
-
-.formulario input, 
-.formulario textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 100%;
-    font-family: Arial, sans-serif;
+.card-content .precio span {
+    font-size: 0.9rem;
+    text-decoration: line-through;
+    color: #aaa;
 }
-
-.formulario input:focus, 
-.formulario textarea:focus {
-    outline: none;
-    border-color: #b5838d;
-}
-
-/* ===== 7. BOTONES Y HOVERS ===== */
-.btn-comprar, 
-.formulario button {
+/* =====  BOTONES GENERALES ===== */
+.btn-comprar, .formulario button {
     background-color: #b5838d;
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 12px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     text-align: center;
-    display: block;
     width: 100%;
     font-size: 1rem;
     transition: 0.3s;
 }
-
-.formulario button {
-    background-color: #3d348b; /* Botón de enviar morado */
-}
-
-.btn-comprar:hover, 
-.formulario button:hover {
+.btn-comprar:hover, .formulario button:hover {
     background-color: #a06a75;
-    transform: scale(1.02);
+}
+/* =====DE CONTACTO Y FORMULARIO (Dos columnas fijas) ===== */
+.conocenos-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 5%;
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+}
+.conocenos-texto {
+    flex: 1;
+}
+.formulario {
+    background-color: #f4f1de;
+    padding: 30px;
+    border-radius: 10px;
+    flex: 1;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.formulario input, .formulario textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+}
+.formulario button {
+    background-color: #3d348b;
 }
 /* ===== 7. FOOTER ===== */
 .footer {
     background-color: #211a4a;
-    color: #fff;
-    padding: 35px 10px;
-    text-align: center;
-}
-
-.footer .socials {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 15px;
-}
-
-.footer .socials a {
     color: white;
-    font-size: 24px;
+    padding: 25px 10px;
+    text-align: center;
+    margin-top: 40px;
 }
-
-/* ===== 8. RESPONSIVE BÁSICO ===== */
+/* ===== RESPONSIVE SIMPLE ===== */
 @media (max-width: 992px) {
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .cards { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (max-width: 768px) {
-
-    .nav-container,
-    .featured,
-    .conocenos-container,
-    .cards {
-        flex-direction: column;
-        grid-template-columns: 1fr;
-    }
-
-    .logo,
-    nav {
-        justify-content: center;
-    }
+    .nav-container, .conocenos-container, .cards { flex-direction: column; grid-template-columns: 1fr; text-align: center; }
+    .logo, nav { justify-content: center; }
 }
-
 /* ===== 9. ANIMACIÓN DEL CARRUSEL ===== */
 .carousel {
     overflow: hidden;
     width: 100%;
     padding: 25px 0;
 }
-
 .carousel-track {
     display: flex;
     width: calc(250px * 16);
     animation: scroll 20s linear infinite;
 }
-
 @keyframes scroll {
     0% {
         transform: translateX(0);
@@ -303,4 +208,30 @@ nav a:hover {
     100% {
         transform: translateX(calc(-250px * 8));
     }
+}
+/*  imágenes de la web */
+.card img,
+.carousel-track img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+.carousel-track img {
+    width: 3050px;
+    height: 250px;
+    margin: 0 10px;
+    border-radius: 8px;
+}
+.card-content {
+    padding: 20px;
+}
+.card-content h3,
+.conocenos-texto h2 {
+    color: #3d348b;
+    margin-bottom: 10px;
+}
+.card-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
 }
